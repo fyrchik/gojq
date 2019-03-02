@@ -39,7 +39,7 @@ func TestExec(t *testing.T) {
 		cmds = MustCompile(Parse(".Field1 !len"))
 		r, err = Exec(cmds, input)
 		So(err, ShouldBeNil)
-		So(r, ShouldEqual, 3)
+		So(r, ShouldResemble, 3)
 
 		cmds = MustCompile(Parse(".Field1 !keys"))
 		r, err = Exec(cmds, input)
@@ -53,7 +53,7 @@ func TestExec(t *testing.T) {
 		cmds = MustCompile(Parse(".Field1 [1]"))
 		r, err = Exec(cmds, input)
 		So(err, ShouldBeNil)
-		So(r, ShouldEqual, 1)
+		So(r, ShouldResemble, 1)
 
 		cmds = MustCompile(Parse(".Field1 !values"))
 		r, err = Exec(cmds, input)
@@ -68,7 +68,7 @@ func TestExec(t *testing.T) {
 		cmds = MustCompile(Parse(".Field3 [1]"))
 		r, err = Exec(cmds, input)
 		So(err, ShouldBeNil)
-		So(r, ShouldEqual, 5)
+		So(r, ShouldResemble, int8(5))
 
 		cmds = MustCompile(Parse(".Field3 [a]"))
 		r, err = Exec(cmds, input)
